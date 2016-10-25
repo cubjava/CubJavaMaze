@@ -21,7 +21,7 @@ public class Tank
 
 	public Tank()
 	{
-		ImageIcon img = new ImageIcon(Tank.class.getResource("/com/cubjava/resources/tank.png").getFile());
+		ImageIcon img = new ImageIcon(Tank.class.getResource("/com/cubjava/resources/tankE.png").getFile());
 		
 		tankImage = img.getImage();
 		x = 32;
