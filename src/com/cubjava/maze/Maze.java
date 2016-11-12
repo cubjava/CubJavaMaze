@@ -1,6 +1,6 @@
 package com.cubjava.maze;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class Maze
 {
