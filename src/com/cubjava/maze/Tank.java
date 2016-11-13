@@ -6,8 +6,12 @@ import javax.swing.ImageIcon;
 
 public class Tank
 {
-	private int x, y, tileX, tileY;
+	private int tileX, tileY;
+	private String state = "E";
 	private Image tankImage;
+	private static final ImageIcon te = new ImageIcon(Tank.class.getResource("/com/cubjava/resources/tankE.png").getFile());
+	private static final ImageIcon tse = new ImageIcon(Tank.class.getResource("/com/cubjava/resources/tankSE.png").getFile());
+	private static final ImageIcon ts = new ImageIcon(Tank.class.getResource("/com/cubjava/resources/tankS.png").getFile());
 	
 	public Image getTankImage()
 	{
@@ -21,32 +25,28 @@ public class Tank
 
 	public Tank()
 	{
-		ImageIcon img = new ImageIcon(Tank.class.getResource("/com/cubjava/resources/tankE.png").getFile());
+		tankImage = te.getImage();
 		
-		tankImage = img.getImage();
-		x = 32;
-		y = 32;
-		tileX = 1;
+		tileX = 0;
 		tileY = 1;
 	}
 	
-	public void move(int dx, int dy, int tx, int ty)
+	public void move(int dx, int dy)
 	{
-		x += dx;
-		y += dy;
-		
-		tileX += tx;
-		tileY += ty;
-	}
-
-	public int getX()
-	{
-		return x;
-	}
-
-	public int getY()
-	{
-		return y;
+		if(dx == 0)
+		{
+			if(dy > 0)
+			{
+				//move south
+				if(state.equals("E"))
+				{
+					state = "ES";
+					setTankImage(tse.getImage());
+				}
+			}
+		}
+		tileX += dx;
+		tileY += dy;
 	}
 
 	public int getTileX()
